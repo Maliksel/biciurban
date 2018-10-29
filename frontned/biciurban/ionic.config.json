@@ -1,0 +1,7 @@
+{
+  "name": "biciurban",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

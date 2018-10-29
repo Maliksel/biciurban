@@ -25,7 +25,7 @@ SECRET_KEY = 'h3@k3=1g!t@-(-!&h__1#=0r9(#-q-#w&c$en1z)!n!&9#_j@#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -41,9 +41,13 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'aplicacion',
+    'corsheaders',
+    'django_google_maps',
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -131,3 +135,20 @@ REST_FRAMEWORK = {
 'rest_framework.permissions.IsAuthenticated',
 ),
 }
+
+
+CORS_ORIGIN_WHITELIST = (
+'localhost:8080',
+ 'localhost:8000',
+ 'localhost:8100',
+ 'localhost:8200',
+)
+CORS_ALLOW_METHODS = (
+'DELETE',
+'GET',
+'PATCH',
+'POST',
+'PUT',
+)
+
+GOOGLE_MAPS_API_KEY = 'AIzaSyDUAxHujvgWSpbBbJgq6Cmtk5qBzmHUydU'
